@@ -3,13 +3,23 @@
 
 document.addEventListener("DOMContentLoaded",function(){
 
-  //create a listbtn
+  //create a listBtn
     const creatBtn = document.querySelector(".addBtn")
-  
     creatBtn.addEventListener("click",addList)
 
-  
+   //add a list
+   const addBtn = document.querySelectorAll("li")
+
+   addBtn.forEach(checked)
+
+   //delete list
+
+   const delBtn = document.querySelectorAll('.close')
+
+   delBtn.forEach(deleted)
+   
   })
+
   
   
   function addList(){
@@ -17,29 +27,85 @@ document.addEventListener("DOMContentLoaded",function(){
     // console.log("click")
 
   
-    let addElement = document.getElementById('input').value
+    let content = document.getElementById('input').value
     document.getElementById('input').value=""
   
 
-    if(addElement!=""){
+    if(content!=""){
 
       let listBox = document.querySelector('ul')
     
       let li = document.createElement("li")
 
-      li.innerHTML = addElement + '<span class="close">x</span>'
+      let span = document.createElement("span")
 
-      
-    
+      span.appendChild(document.createTextNode('x'))
+
+      span.classList.toggle('close')
+
+      li.appendChild(document.createTextNode(content))
+
+      li.appendChild(span)
+     
+      console.log(li)
+
+      li.addEventListener("click",function(e){
+
+        e.target.classList.toggle('checked')
+
+      })
+
+      span.addEventListener("click",function(e){
+
+        e.target.parentNode.remove()
+
+      })
+
       listBox.appendChild(li)
      
 
-      return (li)
+    return (li)
 
     }else {
       alert( "請輸入文字！");
     }
 
-    
   
   }
+
+
+  function checked (all){
+
+    // console.log(all)
+
+    all.addEventListener('click',function(e){
+
+      // console.log(e)
+      e.target.classList.toggle('checked')
+
+    })
+
+   }
+
+
+   function deleted (allDel){
+
+    // console.log(allDel)
+
+    allDel.addEventListener('click',function(ev){
+
+      console.log(ev)
+
+      ev.target.parentNode.remove()
+
+     })
+
+
+   }
+
+
+  //draggable set Attribute
+
+  //nextSibling  Drag
+
+  
