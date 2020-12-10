@@ -81,27 +81,28 @@ document.addEventListener("DOMContentLoaded",function(){
     all.addEventListener('click',function(e){
 
       // console.log(e)
+
       e.target.classList.toggle('checked')
 
     })
-
    }
 
 
-   function deleted (allDel){
+   function deleted (del){
 
-    // console.log(allDel)
+    // console.log(all)
 
-    allDel.addEventListener('click',function(ev){
+    del.addEventListener('click',function(e){
 
-      console.log(ev)
+      // console.log(e)
 
-      ev.target.parentNode.remove()
+      e.target.parentNode.remove()
 
-     })
-
-
+    })
    }
+
+
+  
 
 
   //draggable set Attribute
